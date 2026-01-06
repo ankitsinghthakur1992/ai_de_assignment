@@ -86,7 +86,11 @@ The following data quality issues were observed and handled:
 * Remove unwanted characters  like ₹| and % and and try casting safely for column discounted_price,actual_price,discount_percentage,rating_count.
 * during convertion,rating column was found to contain the | character, which has been handled.
 
-### 2. Price Handling
+### 3. Convert Product link genric link and perform deduplication
+
+* do product link short and perform deduplication.it reduced the record count.
+
+### 4. Price Handling
 
 * Aggregated `actual_price` and discounted price per product where duplicates exist
 * Calculated `discount_amount`:
@@ -95,13 +99,13 @@ The following data quality issues were observed and handled:
   discount_amount = actual_price - discount_price
   ```
 
-### 3. Rating Aggregation
+### 5. Rating Aggregation
 
 * Aggregated ratings at product level
 * `rating_count`& `ratings` :  **max value** used to select rating count.
 
 
-### 4. Category Cleaning
+### 6. Category Cleaning
 
 * Extracted parent category before delimiter (`|`)
 * Example:
